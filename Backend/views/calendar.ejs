@@ -19,8 +19,8 @@
 
         <% appts.forEach(a => { 
             const d = new Date(a.datetime);
-            const datePart = d.toISOString().split("T")[0];   // yyyy-mm-dd
-            const timePart = d.toTimeString().slice(0,5);      // hh:mm
+            const datePart = d.toISOString().split("T")[0];
+            const timePart = d.toTimeString().slice(0,5);
         %>
 
         <tr>
@@ -28,7 +28,10 @@
             <td><%= a.patient %></td>
             <td><%= a.doctor %></td>
             <td><%= datePart %> | <%= timePart %></td>
-            <td><a class="delete" href="/delete/<%= a.id %>">Delete</a></td>
+            <td>
+                <a href="/edit/<%= a.id %>">Edit</a> |
+                <a class="delete" href="/delete/<%= a.id %>">Delete</a>
+            </td>
         </tr>
 
         <% }) %>
