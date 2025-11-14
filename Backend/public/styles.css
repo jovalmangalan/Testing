@@ -1,23 +1,25 @@
-/* General page layout */
+/* PAGE LAYOUT */
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    padding: 40px;
     background: #f9fafb;
     color: #222;
+    margin: 0;
+    padding: 40px;
+    text-align: center;   /* <-- CENTER EVERYTHING */
 }
 
-/* Page titles */
+/* TITLES */
 h1 {
-    margin-bottom: 25px;
     font-size: 32px;
+    margin-bottom: 30px;
     color: #1a1a1a;
 }
 
-/* Navigation links */
+/* NAVIGATION + LINKS */
 .nav a, 
 a {
     text-decoration: none;
-    margin-right: 20px;
+    margin: 0 15px;
     font-size: 18px;
     color: #2163f6;
 }
@@ -26,19 +28,22 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Form styling */
+/* FORM */
 form {
+    display: inline-block;
+    text-align: left;
     width: 320px;
     background: #ffffff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 label {
-    margin-bottom: 6px;
-    margin-top: 12px;
+    display: block;
     font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 6px;
 }
 
 input {
@@ -50,7 +55,7 @@ input {
     border-radius: 6px;
 }
 
-/* Buttons */
+/* BUTTONS */
 button {
     background: #2163f6;
     border: none;
@@ -59,15 +64,18 @@ button {
     font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
+    width: 100%;
 }
 
 button:hover {
     background: #164ecf;
 }
 
-/* Table */
+/* TABLE */
 table {
+    margin: 0 auto;
     width: 90%;
+    max-width: 900px;
     border-collapse: collapse;
     margin-top: 20px;
     background: #ffffff;
@@ -79,7 +87,6 @@ table {
 th {
     background: #f1f5f9;
     padding: 12px;
-    text-align: left;
     font-weight: 700;
     border-bottom: 2px solid #e5e7eb;
 }
@@ -89,7 +96,7 @@ td {
     border-bottom: 1px solid #e5e7eb;
 }
 
-/* Delete button */
+/* DELETE BUTTON */
 .delete {
     color: #d11a2a;
     font-weight: 600;
