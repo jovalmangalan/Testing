@@ -35,11 +35,22 @@ export default {
             return res.send("This time slot is already taken.");
         }
 
+        // Generate next ID (APT-001, APT-002, etc.)
+        let nextNumber = 1;
+
+        if (appts.length > 0) {
+            const lastAppt = appts[appts.length - 1];
+            const lastId = parseInt(lastAppt.id.split("-")[1]);
+            nextNumber = lastId + 1;
+        }
+
+        const formattedId = "APT-" + String(nextNumber).padStart(3, "0");
+
         const newAppt = {
-            id: Date.now().toString(),
+            id: formattedId,
             patient,
             doctor,
-            datetime
+            datetime,
         };
 
         appts.push(newAppt);
@@ -57,9 +68,9 @@ export default {
         const { id } = req.params;
         let appts = loadAppointments();
 
-        appts = appts.filter(a => a.id !== id);
+        appts = appts.filter((a) => a.id !== id);
         saveAppointments(appts);
 
         res.redirect("/calendar");
-    }
+    },
 };

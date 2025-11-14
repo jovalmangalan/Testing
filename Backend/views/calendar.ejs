@@ -1,22 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Calendar</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
 
     <h1>Calendar</h1>
 
     <table>
         <tr>
+            <th>ID</th>
             <th>Patient</th>
             <th>Doctor</th>
-            <th>Date & Time</th>
+            <th>Date</th>
             <th>Action</th>
         </tr>
 
-        <% appts.forEach(a => { %>
+        <% appts.forEach(a => { 
+            const d = new Date(a.datetime);
+            const datePart = d.toISOString().split("T")[0];   // yyyy-mm-dd
+            const timePart = d.toTimeString().slice(0,5);      // hh:mm
+        %>
+
         <tr>
+            <td><%= a.id %></td>
             <td><%= a.patient %></td>
             <td><%= a.doctor %></td>
-            <td><%= a.datetime %></td>
+            <td><%= datePart %> | <%= timePart %></td>
             <td><a class="delete" href="/delete/<%= a.id %>">Delete</a></td>
         </tr>
+
         <% }) %>
     </table>
 
@@ -24,3 +38,4 @@
     <a href="/">Back to Home</a>
 
 </body>
+</html>
